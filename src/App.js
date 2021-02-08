@@ -71,15 +71,6 @@ const App = () => {
       }
     }
   };
-  useEffect(() => {
-    const data = localStorage.getItem('info');
-    if (data) {
-      setInfo(JSON.parse(data));
-    }
-  }, []);
-  useEffect(() => {
-    localStorage.setItem('info', JSON.stringify(info));
-  });
 
   return (
     <div className='App'>
