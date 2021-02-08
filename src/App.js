@@ -47,7 +47,7 @@ const App = () => {
     } else {
       const moviename = query;
       axios
-        .get(`http://www.omdbapi.com/?t=${moviename}&apikey=b0eb5c66`)
+        .get(`https://www.omdbapi.com/?t=${moviename}&apikey=b0eb5c66`)
         .then((resp) => {
           if (resp.data.Error) swal('Oops!', 'Movie Not Found!', 'error');
           setInfo(resp.data);
