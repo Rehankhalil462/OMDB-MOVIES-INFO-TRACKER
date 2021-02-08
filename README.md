@@ -1,5 +1,5 @@
 # Check Live Project
 
-https://movies-info-tracker.vercel.app/
+https://moviesinfotracker.netlify.app/
 
 ## React Movies Info Tracker APP using OMDB API. Using Axios, Sweetalert and Material UI.
