@@ -2,25 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: 'Comic Sans MS',
+  },
+  palette: {
+    primary: {
+      main: '#757de8',
+      contrastText: '#fff',
+    },
+    secondary: {
+      main: '#512da8',
+      contrastText: '#fff',
+    },
+    text: {
+      primary: '#f5f5f5',
+      secondary: '#f5f5f5',
+    },
+  },
+});
 
-//import reportWebVitals from './reportWebVitals';
-
-// const name = 'Rehan khalil'
-// const currdate= new Date().toLocaleDateString();
-// const currtime= new Date().toLocaleTimeString();
-// <React.Fragment>
-     //<h1>My name is {name} </h1>,
-     //<p> todays date is {currdate}</p>
-   //  <p> todays time is {currtime}</p> 
- // </React.Fragment> 
 ReactDOM.render(
-
-  <App/>
-   ,
+  <ThemeProvider theme={theme}>
+    <App />
+  </ThemeProvider>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();

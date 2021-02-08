@@ -2,11 +2,22 @@
   text-align: center;
 }
 
-h1{
+h1 {
   letter-spacing: 1px;
   font-family: 'Bigelow Rules';
   font-size: 72px;
   color: #0ccac4;
+}
+.search {
+  -webkit-appearance: none;
+  border: none;
+  background-color: #95dada;
+  border: 3px solid grey;
+  outline: none;
+  padding: 10px;
+  width: 150px;
+  line-height: 30px;
+  margin-bottom: 30px;
 }
 .App-logo {
   height: 40vmin;
