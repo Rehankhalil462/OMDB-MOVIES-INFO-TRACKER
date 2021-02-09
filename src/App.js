@@ -47,7 +47,9 @@ const App = () => {
     } else {
       const moviename = query;
       axios
-        .get(`https://www.omdbapi.com/?t=${moviename}&apikey=b0eb5c66`)
+        .get(
+          `https://www.omdbapi.com/?t=${moviename}&plot=full&apikey=b0eb5c66`
+        )
         .then((resp) => {
           if (resp.data.Error) swal('Oops!', 'Movie Not Found!', 'error');
           setInfo(resp.data);
@@ -62,7 +64,9 @@ const App = () => {
       } else {
         const moviename = query;
         axios
-          .get(`https://www.omdbapi.com/?t=${moviename}&apikey=b0eb5c66`)
+          .get(
+            `https://www.omdbapi.com/?t=${moviename}&plot=full&apikey=b0eb5c66`
+          )
           .then((resp) => {
             if (resp.data.Error) swal('Oops!', 'Movie Not Found!', 'error');
             setInfo(resp.data);
@@ -118,175 +122,178 @@ const App = () => {
           </Button>
         </Grid>
       </Grid>
+      {info.Title && (
+        <Container maxWidth='sm'>
+          <List aria-label='main mailbox folders'>
+            <ListItem>
+              <ListItemIcon>
+                <TitleRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Title: &emsp; {info.Title}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <LocalOfferRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Genre: &emsp; {info.Genre}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <NewReleasesRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Released: &emsp; {info.Released}
+              </ListItemText>
+            </ListItem>
+            <Divider />
 
-      <Container maxWidth='sm'>
-        <List aria-label='main mailbox folders'>
-          <ListItem>
-            <ListItemIcon>
-              <TitleRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Title: &emsp; {info.Title}
-            </ListItemText>
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemIcon>
-              <LocalOfferRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Genre: &emsp; {info.Genre}
-            </ListItemText>
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemIcon>
-              <NewReleasesRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Released: &emsp; {info.Released}
-            </ListItemText>
-          </ListItem>
-          <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <CalendarTodayRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Year: &emsp; {info.Year}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <TimelapseRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Duration: &emsp; {info.Runtime}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <LanguageRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Language: &emsp; {info.Language}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <SubjectRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Storyline: &emsp; {info.Plot}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <PeopleRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Actors: &emsp; {info.Actors}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <PeopleRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Writer(s): &emsp; {info.Writer}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <PeopleRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Director(s): &emsp; {info.Director}
+              </ListItemText>
+            </ListItem>
+            <Divider />
 
-          <ListItem>
-            <ListItemIcon>
-              <CalendarTodayRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>Year: &emsp; {info.Year}</ListItemText>
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemIcon>
-              <TimelapseRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Duration: &emsp; {info.Runtime}
-            </ListItemText>
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemIcon>
-              <LanguageRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Language: &emsp; {info.Language}
-            </ListItemText>
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemIcon>
-              <SubjectRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Storyline: &emsp; {info.Plot}
-            </ListItemText>
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemIcon>
-              <PeopleRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Actors: &emsp; {info.Actors}
-            </ListItemText>
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemIcon>
-              <PeopleRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Writer(s): &emsp; {info.Writer}
-            </ListItemText>
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemIcon>
-              <PeopleRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Director(s): &emsp; {info.Director}
-            </ListItemText>
-          </ListItem>
-          <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <PublicRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Country: &emsp; {info.Country}
+              </ListItemText>
+            </ListItem>
+            <Divider />
 
-          <ListItem>
-            <ListItemIcon>
-              <PublicRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Country: &emsp; {info.Country}
-            </ListItemText>
-          </ListItem>
-          <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <EmojiEventsIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Awards: &emsp; {info.Awards}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <ScoreRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Metascore: &emsp; {info.Metascore}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <GradeRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                IMDB Ratings: &emsp; {info.imdbRating}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <HowToVoteRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                IMDB Votings: &emsp; {info.imdbVotes}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <MonetizationOnRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Box Office: &emsp; {info.BoxOffice}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon>
+                <StoreRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Production: &emsp; {info.Production}
+              </ListItemText>
+            </ListItem>
+            <Divider />
 
-          <ListItem>
-            <ListItemIcon>
-              <EmojiEventsIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Awards: &emsp; {info.Awards}
-            </ListItemText>
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemIcon>
-              <ScoreRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Metascore: &emsp; {info.Metascore}
-            </ListItemText>
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemIcon>
-              <GradeRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              IMDB Ratings: &emsp; {info.imdbRating}
-            </ListItemText>
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemIcon>
-              <HowToVoteRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              IMDB Votings: &emsp; {info.imdbVotes}
-            </ListItemText>
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemIcon>
-              <MonetizationOnRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Box Office: &emsp; {info.BoxOffice}
-            </ListItemText>
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemIcon>
-              <StoreRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Production: &emsp; {info.Production}
-            </ListItemText>
-          </ListItem>
-          <Divider />
-
-          <ListItem>
-            <ListItemIcon>
-              <HttpRoundedIcon />
-            </ListItemIcon>
-            <ListItemText style={style}>
-              Website: &emsp; {info.Website}
-            </ListItemText>
-          </ListItem>
-          <Divider />
-        </List>
-      </Container>
+            <ListItem>
+              <ListItemIcon>
+                <HttpRoundedIcon />
+              </ListItemIcon>
+              <ListItemText style={style}>
+                Website: &emsp; {info.Website}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+          </List>
+        </Container>
+      )}
     </div>
   );
 };
