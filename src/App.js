@@ -253,7 +253,7 @@ const App = () => {
               <HowToVoteRoundedIcon />
             </ListItemIcon>
             <ListItemText style={style}>
-              IMDB Ratings: &emsp; {info.imdbVotes}
+              IMDB Votings: &emsp; {info.imdbVotes}
             </ListItemText>
           </ListItem>
           <Divider />
