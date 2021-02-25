@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Footer from './components/Footer/Footer';
 import swal from 'sweetalert';
 import './App.css';
 import Button from '@material-ui/core/Button';
@@ -122,7 +123,7 @@ const App = () => {
           </Button>
         </Grid>
       </Grid>
-      {info.Title && (
+      {info.Title ? (
         <Container maxWidth='sm'>
           <List aria-label='main mailbox folders'>
             <ListItem>
@@ -292,7 +293,10 @@ const App = () => {
             </ListItem>
             <Divider />
           </List>
+          <Footer />
         </Container>
+      ) : (
+        <Footer fix />
       )}
     </div>
   );
