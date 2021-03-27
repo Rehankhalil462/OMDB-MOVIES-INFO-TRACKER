@@ -50,7 +50,7 @@ const App = () => {
       const moviename = query;
       axios
         .get(
-          `https://www.omdbapi.com/?t=${moviename}&plot=full&apikey=${process.env.REACT_APP_API_KEY}`
+          `https://www.omdbapi.com/?t=${moviename}&plot=full&apikey=b0eb5c66`
         )
         .then((resp) => {
           if (resp.data.Error) swal('Oops!', 'Movie Not Found!', 'error');
@@ -67,7 +67,7 @@ const App = () => {
         const moviename = query;
         axios
           .get(
-            `https://www.omdbapi.com/?t=${moviename}&plot=full&apikey=${process.env.REACT_APP_API_KEY}`
+            `https://www.omdbapi.com/?t=${moviename}&plot=full&apikey=b0eb5c66`
           )
           .then((resp) => {
             if (resp.data.Error) swal('Oops!', 'Movie Not Found!', 'error');
